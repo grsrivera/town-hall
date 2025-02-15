@@ -1,0 +1,39 @@
+.town-Hall-Section {
+    padding: 5px 15px;
+}
+
+#menu-statewide-navigation img {
+    height: 40px;
+}
+
+/* Start originator post */
+.originator-block {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+    color: black;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 24px;
+    color: black;
+    text-transform: none;
+}
+
+.originator-block img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.title, .post-content {
+    padding-left: 10px;
+    color: black;
+}
+
+.time-ago-block {
+    font-weight: normal;
+    padding-left: 10px;
+}

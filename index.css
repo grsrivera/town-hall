@@ -1,0 +1,118 @@
+#menu-statewide-navigation img {
+    height: 40px;
+}
+
+.town-Hall-Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.top-button-box {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.create-button, .gov-button {
+    border: none;
+    border-radius: 20px;
+    width: 90px;
+    height: 40px;
+    /* font-size: 30px; */
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-button:hover {
+    background: #DBE4E9;
+}
+
+.gov-button {
+    margin-left: 5px;
+    width: 110px;
+}
+
+.gov-button:hover {
+    background: #DBE4E9;
+}
+
+.fa-solid.plus {
+    font-size: 20px;
+}
+
+.create-button span {
+    transform: translateY(-2px);
+}
+
+.rules {
+    font-style: italic;
+    padding-left: 400px;
+    margin-bottom: 20px;
+}
+
+.table-title {
+    font-size: 30px;
+    font-style: italic;
+}
+
+.gov-box, .citizens-box {
+    width: 100%;
+    padding-left: 30px;
+}
+
+/* 
+.gov-box hr, .citizens-box hr {
+    margin: 10px;
+} */
+
+/* Start originator post */
+.thread-container {
+    width: 100%;
+    margin: 20px 0 20px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.originator-block {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+    color: black;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 24px;
+    color: black;
+    text-transform: none;
+}
+
+.originator-block img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.title, .post-content {
+    padding-left: 10px;
+    color: black;
+}
+
+.time-ago-block {
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+.post-content p {
+    display: inline-block;
+    margin: 0; /*to make it height of the text only */         
+}
+
+/* Post counts */
+.post-pages-gov, .post-pages-citizens {
+    font-size: 10px
+}

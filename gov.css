@@ -1,0 +1,30 @@
+#menu-statewide-navigation img {
+    height: 40px;
+}
+
+.town-Hall-Section {
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#back-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; 
+    background-color: rgb(241, 241, 241);
+    color: black;
+    border: none; /* Remove default border */   
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#back-button:hover {
+    background-color: rgb(214, 214, 214);
+}
+
+.summ {
+    margin-top: 30px;
+}
+
