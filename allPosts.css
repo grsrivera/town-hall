@@ -1,12 +1,90 @@
-.town-Hall-Section {
-    padding: 5px 15px;
-}
-
 #menu-statewide-navigation img {
     height: 40px;
 }
 
+
+.town-Hall-Section {
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-button-box {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+}
+
+#back-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; 
+    background-color: rgb(241, 241, 241);
+    color: black;
+    border: none; /* Remove default border */   
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#back-button:hover {
+    background-color: rgb(214, 214, 214);
+}
+
+.table-title {
+    margin-top: 20px;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.total {
+    margin-bottom: 35px;
+    font-size: .8em;
+}
+
+form {
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+form > input {
+    width: 500px;
+    border-radius: 20px;
+    padding-left: 15px;
+    margin-right: 5px;
+    border: 1px solid rgb(197, 227, 254)
+}
+
+form > input:focus {
+    outline: none;
+}
+
+form > button {
+    border-radius: 20px;
+    border: none;
+    background: none;
+}
+
+form > button:hover {
+    background: rgb(197, 227, 254)
+}
+
+
+
+
+
 /* Start originator post */
+.thread-container {
+    width: 100%;
+    margin-left: 50px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
 .originator-block {
     display: flex;
     align-items: center;
@@ -37,3 +115,16 @@
     font-weight: normal;
     padding-left: 10px;
 }
+
+.post-content p {
+    display: inline-block;
+    margin: 0; /*to make it height of the text only */         
+}
+
+hr {
+    width: 100%;
+    margin: 5px 0;
+    padding: 0;
+}
+
+

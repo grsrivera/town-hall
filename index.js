@@ -38,7 +38,7 @@ function populateThread(thread) {
     let timeAgoText = pastMoment.fromNow();
     let timeAgoBlock = document.createElement("div");
     timeAgoBlock.className = "time-ago-block";
-    timeAgoBlock.innerHTML = timeAgoText;
+    timeAgoBlock.innerHTML = `Latest reply ${timeAgoText}`;
     originatorBlock.appendChild(timeAgoBlock);
 
     // Post title

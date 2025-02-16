@@ -1,16 +1,4 @@
-// Fetch and extract functions
-function fetchUsersAndThreads() {
-    return Promise.all([
-        fetch("http://127.0.0.1:5000/users"),
-        fetch("http://127.0.0.1:5000/messages")
-    ]);
-}
-
-function extractJSON(response) {
-    return response.json();
-};
-
-function populateThread(user, thread) {
+function populateThread(thread) {
     // Make all divs first
     let mainBody = document.querySelector(".town-Hall-Section");
 
@@ -32,19 +20,19 @@ function populateThread(user, thread) {
 
     // Originator info
     let originatorPic = document.createElement("img");
-    originatorPic.src = `${user.profile_pic}`;
+    originatorPic.src = `profile_pics/${thread.profile_pic}`;
     let originatorName = document.createElement("div");
-    originatorName.innerHTML = `${user.first_name} ${user.last_name}`;
+    originatorName.innerHTML = `${thread.first_name} ${thread.last_name}`;
     originatorBlock.appendChild(originatorPic);
     originatorBlock.appendChild(originatorName);
 
     // Time ago
-    let pastDate = `${thread.comments[0].timestamp}`;
+    let pastDate = `${thread.last_activity}`;
     const pastMoment = moment(pastDate);
     let timeAgoText = pastMoment.fromNow();
     let timeAgoBlock = document.createElement("div");
     timeAgoBlock.className = "time-ago-block";
-    timeAgoBlock.innerHTML = timeAgoText;
+    timeAgoBlock.innerHTML = `Last comment ${timeAgoText}`;
     originatorBlock.appendChild(timeAgoBlock);
 
     // Post title
@@ -52,38 +40,46 @@ function populateThread(user, thread) {
     
     // Post content
     let tempQuill = new Quill(document.createElement("div"));
-    tempQuill.setContents(thread.comments[0].content);
+    let quillContent = JSON.parse(thread.content)
+    tempQuill.setContents(quillContent);
     if (tempQuill.root.innerHTML.length < 100 ) {
         postContent.innerHTML = tempQuill.root.innerHTML;
     } else {postContent.innerHTML = tempQuill.root.innerHTML.slice(0, 100) + "..."  
     }
 
+    let textContent = tempQuill.root.innerHTML; // Pulls text from quill
+    if (textContent.length < 100 ) {
+        postContent.innerHTML = textContent;
+    } else {
+        postContent.innerHTML = textContent.slice(0, 100) + "..."  
+    }
+
     // Border
     let threadDivider = document.createElement("hr");
-    threadContainer.appendChild(threadDivider);
-
+    threadContainer.insertAdjacentElement("afterend", threadDivider);
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-    // Get post_id from url
+    // Get "government" reply info from url
     let params = new URLSearchParams(window.location.search);
-    let govResponse = params.get("response") === "true"; // String to boolean value  
+ 
+    let govResponse = parseInt(params.get("response"));
 
-    let response = await fetchUsersAndThreads();
-    let users = await extractJSON(response[0])
-    let threads = await extractJSON(response[1])
+    let response = await fetch(`http://127.0.0.1:5000/get-threads?response=${govResponse}`);
+    let threads = await response.json();
+
+    let tableTitle = document.querySelector(".table-title");
+    if (govResponse === true) {
+        tableTitle.innerHTML = "Government Responses";
+    } else {
+        tableTitle.innerHTML = "From Alaskans";
+    }
 
     for (let thread of threads) {
-        if (govResponse === thread.government) {
-            let user;
-            for (u of users) {
-                if (thread.comments[0].user_id === u.user_id) {
-                    user = u;
-                    break;
-                }
-            }
-            populateThread(user, thread);
-        }
+        populateThread(thread);
     } 
+
+    let total = document.querySelector(".total");
+    total.innerHTML = `${threads.length} Total Posts`
     
 });
