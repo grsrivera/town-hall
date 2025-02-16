@@ -17,17 +17,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // So clicking anywhere on the textbox focuses it, not just first line
     document.getElementById("comment-textdiv").addEventListener("click", function() {
-        quill.focus();  // ✅ This forces focus when clicking anywhere
+        quill.focus();  // This focuses when click anywhere on box
     });
-
 
     // Submit when click on Comment!
     let commentBtn = document.querySelector(".submit-btn")
     commentBtn.addEventListener("click", async function () {
         let postContent = quill.getContents();
         let postTitle = document.getElementById("post-title").value;
-        if (postContent.ops.length === 0 || postTitle.length ===0) return;
-    
+
+        if (postContent.ops.length === 0 || postTitle.trim().length === 0) {
+            alert("Fill in boxes!");
+            return;
+        }
+
+        postContent = JSON.stringify(quill.getContents());
+
         try {
             let response = await fetch(`http://127.0.0.1:5000/create-thread`, {
                 method: "POST",

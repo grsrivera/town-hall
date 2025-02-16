@@ -1,17 +1,5 @@
-// Fetch and extract functions
-function fetchUsersAndThreads() {
-    return Promise.all([
-        fetch("http://127.0.0.1:5000/users"),
-        fetch("http://127.0.0.1:5000/get-threads"),
-        fetch("http://127.0.0.1:5000/get-comments")
-    ]);
-}
-
-function extractJSON(response) {
-    return response.json();
-};
-
-function populateThread(user, thread, government) {
+// function populateThread(user, thread, government)
+function populateThread(thread) {
     // Make all divs first
     let threadContainer = document.createElement("a");
     threadContainer.className = "thread-container";
@@ -26,27 +14,26 @@ function populateThread(user, thread, government) {
 
     let govBox = document.querySelector(".gov-box");
     let citizensBox = document.querySelector(".citizens-box");
-    if (government === true) {
+    if (thread.government === 1) {
         govBox.appendChild(threadContainer);
     } else {
         citizensBox.appendChild(threadContainer);
     }
     
-
     threadContainer.appendChild(originatorBlock);
     threadContainer.appendChild(titleBlock);
     threadContainer.appendChild(postContent);
 
     // Originator info
     let originatorPic = document.createElement("img");
-    originatorPic.src = `${user.profile_pic}`;
+    originatorPic.src = `profile_pics/${thread.profile_pic}`;
     let originatorName = document.createElement("div");
-    originatorName.innerHTML = `${user.first_name} ${user.last_name}`;
+    originatorName.innerHTML = `${thread.first_name} ${thread.last_name}`;
     originatorBlock.appendChild(originatorPic);
     originatorBlock.appendChild(originatorName);
 
     // Time ago
-    let pastDate = `${thread.comments[0].timestamp}`;
+    let pastDate = `${thread.last_activity}`;
     const pastMoment = moment(pastDate);
     let timeAgoText = pastMoment.fromNow();
     let timeAgoBlock = document.createElement("div");
@@ -59,10 +46,14 @@ function populateThread(user, thread, government) {
     
     // Post content
     let tempQuill = new Quill(document.createElement("div"));
-    tempQuill.setContents(thread.comments[0].content);
-    if (tempQuill.root.innerHTML.length < 100 ) {
-        postContent.innerHTML = tempQuill.root.innerHTML;
-    } else {postContent.innerHTML = tempQuill.root.innerHTML.slice(0, 100) + "..."  
+    let quillContent = JSON.parse(thread.content)
+    tempQuill.setContents(quillContent);
+
+    let textContent = tempQuill.root.innerHTML; // Pulls text from quill
+    if (textContent.length < 100 ) {
+        postContent.innerHTML = textContent;
+    } else {
+        postContent.innerHTML = textContent.slice(0, 100) + "..."  
     }
 
     // Border
@@ -72,43 +63,27 @@ function populateThread(user, thread, government) {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-    let response = await fetchUsersAndThreads();
-    let users = await extractJSON(response[0])
-    let threads = await extractJSON(response[1])
-    let comments = await extractJSON(response[2])
+    let response = await fetch("http://localhost:5000/recent-threads");
+    let threads = await response.json();
 
-    let govPosts = 0;
-    let citizenPosts = 0;
-    let curr = 0;
-    while (govPosts < 5 || citizenPosts < 5 && curr < threads.length) {
-        let originalPosterId = threads[curr].comments[0].user_id;
-        let user;
-        for (u of users) {
-            if (u.user_id === originalPoster) {
-                user = u;
-            }
-        }
-        if (threads[curr]["government"] === true && govPosts < 5) {
-            populateThread(user, threads[curr], true);
-            govPosts += 1;
-        } else if (threads[curr]["government"] === false && citizenPosts < 5) {
-            populateThread(user, threads[curr], false)
-            citizenPosts += 1
-        }
-        curr += 1
-    };
-
+    for (let thread of threads) {
+        populateThread(thread)
+    }
+        
     let govCounter = document.querySelector(".post-pages-gov").querySelector("a");
     let citCounter = document.querySelector(".post-pages-citizens").querySelector("a");
     let govCount = 0;
     let citCount = 0;
-    for (let thread of threads) {
-        if (thread["government"] === true) {
-            govCount += 1
+    response = await fetch("http://localhost:5000/get-threads");
+    let allThreads = await response.json();
+    for (let thread of allThreads) {
+        if (thread.government === 1) {
+        govCount += 1;
         } else {
-            citCount += 1
-        }
-    };
+            citCount += 1;
+        } 
+    }
+
     govCounter.innerHTML = `${govCount} Government Posts`
     citCounter.innerHTML = `${citCount} Total Posts`
 });
