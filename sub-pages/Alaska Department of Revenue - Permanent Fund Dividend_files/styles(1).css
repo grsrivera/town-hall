@@ -1,0 +1,29 @@
+﻿.sidebarHeader {
+    width: 100%;
+}
+
+.myPFDHeader {
+    background-image: url(/images/permanentfunddividendlibraries/page-assets/pfd-mypfd_header.jpg?sfvrsn=5eec2019_3);
+    background: no-repeat center center center;
+    background-size: 100% 100%;
+    display: block;
+    border: 0 none !important;
+    max-height: 69px;
+    height: 69px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+    .myPFDHeader {
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 0;
+        padding-top: 30%;
+        margin-bottom: -3%;
+    }
+
+    .mypfdLinks {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,23 @@
+
+if (document.getElementsByClassName("isSticky")[0]) {
+	window.onscroll = function () { stickySidemenu() };
+
+	var navbar = document.getElementsByClassName("isSticky")[0];
+	var sticky = navbar.offsetTop;
+	var distanceFromTop = navbar.getBoundingClientRect().top
+}
+
+
+
+function stickySidemenu() {
+	if (window.pageYOffset >= distanceFromTop) {
+		navbar.classList.add("sticky");
+	} 
+	else if (window.innerWidth < 1000) {
+		navbar.classList.remove("sticky");
+	}
+        else {
+        	navbar.classList.remove("sticky");
+	}
+}
+   
