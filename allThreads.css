@@ -36,6 +36,7 @@
     margin-top: 20px;
     font-size: 30px;
     font-style: italic;
+    transition: 500ms;
 }
 
 .total {
@@ -50,25 +51,27 @@ form {
     justify-content: center
 }
 
-form > input {
+input {
     width: 500px;
     border-radius: 20px;
     padding-left: 15px;
     margin-right: 5px;
-    border: 1px solid rgb(197, 227, 254)
+    border: 1px solid rgb(197, 227, 254);
+    padding-bottom: 5px;
 }
 
-form > input:focus {
+input:focus {
     outline: none;
 }
 
-form > button {
+button {
     border-radius: 20px;
     border: none;
     background: none;
+    padding-bottom: 5px;
 }
 
-form > button:hover {
+button:hover {
     background: rgb(197, 227, 254)
 }
 
@@ -138,3 +141,6 @@ hr {
     opacity: 1;
 }
 
+.hide {
+    opacity: 0;
+}

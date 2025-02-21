@@ -67,8 +67,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     
     let govResponse = parseInt(params.get("response"));
 
-    let response = await fetch(`http://127.0.0.1:5000/get-20?response=${govResponse}`);
-    let threads = await response.json();
+    let response = await fetch(`http://127.0.0.1:5000/get-threads?response=${govResponse}`);
+    let data = await response.json();
+    threads = data.threads;
+    total_count = data.total_count;
 
     let tableTitle = document.querySelector(".table-title");
     if (govResponse === true) {
@@ -85,13 +87,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         lastThreadId = thread.thread_id
     } 
 
+    // Observer for infinite scroll
     const observer = new IntersectionObserver(async (entries) => {
         for (const entry of entries) {
             if (entry.isIntersecting) {
                 try {
-                    const response = await fetch(`http://127.0.0.1:5000/get-20?response=${govResponse}&lastThreadId=${lastThreadId}`);
-                    const threads = await response.json();
-       
+                    const response = await fetch(`http://127.0.0.1:5000/get-threads?response=${govResponse}&lastThreadId=${lastThreadId}`);
+                    const data = await response.json();
+                    let threads = data.threads;
+
                     for (let thread of threads) {
                         let elements = populateThread(thread);
                         elements.threadContainer.classList.add("show");
@@ -112,11 +116,92 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }, {threshold: 1, rootMargin: "0px 0px -200px 0px"});
 
+
+    // Start of the Search Feature
+    async function runSearch () {
+        const searchQuery = document.querySelector(".form input").value.trim();
+    
+        if (searchQuery === "") {
+            return;
+        } 
+
+        let response = await fetch(`http://127.0.0.1:5000/search?query=${encodeURIComponent(searchQuery)}`);
+        let data = await response.json();
+        let threads = data.threads;
+        let total_count = data.total_count;
+
+        let threadContainersAndHRs = document.querySelectorAll(".thread-container, hr");
+        threadContainersAndHRs.forEach(threadContainerAndHR => {threadContainerAndHR.remove()});
+        
+        let lastThreadID = null;
+        let threadContainers = [];
+
+        for (let thread of threads) {
+            let elements = populateThread(thread);
+            elements.threadContainer.classList.add("show");
+            elements.threadDivider.classList.add("show");
+            lastThreadId = thread.thread_id
+
+            threadContainers.push(elements.threadContainer);
+        } 
+
+        if (threadContainers.length > 0) {
+            observer.observe(threadContainers[threadContainers.length - 1]);
+        }
+
+        // Total post count
+        let total = document.querySelector(".total");
+        total.innerHTML = `${total_count} Total Posts`;
+
+        // Hide the "From Alaskans" or "From the Governor"
+        tableTitle.classList.add("hide")
+    };
+
+    let searchButton = document.querySelector(".form button");
+    searchButton.addEventListener("click", runSearch);
+
+    let searchBox = document.querySelector(".form input");
+    searchBox.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent form submission if inside a form
+            runSearch();
+        }
+    });
+    
+    searchBox.addEventListener("input", function resetSearch() {
+        const searchQuery = searchBox.value;
+
+        if (searchQuery === "") {
+            let threadContainersAndHRs = document.querySelectorAll(".thread-container, hr");
+            threadContainersAndHRs.forEach(threadContainerAndHR => {threadContainerAndHR.remove()});
+
+            let threadContainers = [];
+            for (let thread of threads) {
+                let elements = populateThread(thread);
+                elements.threadContainer.classList.add("show");
+                elements.threadDivider.classList.add("show");
+                lastThreadId = thread.thread_id
+                
+                threadContainers.push(elements.threadContainer);
+                observer.observe(threadContainers[threadContainers.length - 1]);
+            }
+
+            tableTitle.classList.remove("hide")
+            total.innerHTML = `${total_count} Total Posts`;
+        }
+    })
+
+
+// End of Search Feature
+
+
+
     const threadBoxes = document.querySelectorAll(".thread-container")
     const lastThreadBox = threadBoxes[threadBoxes.length - 1]
     observer.observe(lastThreadBox)
 
     let total = document.querySelector(".total");
-    total.innerHTML = `${threads.length} Total Posts`
-    
+    total.innerHTML = `${total_count} Total Posts`;
+
+
 });

@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     let govCount = 0;
     let citCount = 0;
     response = await fetch("http://localhost:5000/get-threads");
-    let allThreads = await response.json();
+    let data = await response.json();
+    allThreads = data.threads;
+
     for (let thread of allThreads) {
         if (thread.government === 1) {
         govCount += 1;
