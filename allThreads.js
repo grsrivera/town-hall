@@ -67,7 +67,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     
     let govResponse = parseInt(params.get("response"));
 
-    let response = await fetch(`http://127.0.0.1:5000/get-threads?response=${govResponse}`);
+    let BASE_URL;
+    if (window.location.hostname === "127.0.0.1" && window.location.port === "5500") {
+        BASE_URL = "http://127.0.0.1:5000";
+    } else {
+        BASE_URL = "https://town-hall-prototype.onrender.com";
+    }
+
+
+    let response = await fetch(`${BASE_URL}/get-threads?response=${govResponse}`);
     let data = await response.json();
     threads = data.threads;
     total_count = data.total_count;
@@ -92,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         for (const entry of entries) {
             if (entry.isIntersecting) {
                 try {
-                    const response = await fetch(`http://127.0.0.1:5000/get-threads?response=${govResponse}&lastThreadId=${lastThreadId}`);
+                    const response = await fetch(`${BASE_URL}/get-threads?response=${govResponse}&lastThreadId=${lastThreadId}`);
                     const data = await response.json();
                     let threads = data.threads;
 
@@ -125,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             return;
         } 
 
-        let response = await fetch(`http://127.0.0.1:5000/search?query=${encodeURIComponent(searchQuery)}`);
+        let response = await fetch(`${BASE_URL}/search?query=${encodeURIComponent(searchQuery)}`);
         let data = await response.json();
         let threads = data.threads;
         let total_count = data.total_count;

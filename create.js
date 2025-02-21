@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", async function () {
+    let BASE_URL;
+    if (window.location.hostname === "127.0.0.1" && window.location.port === "5500") {
+        BASE_URL = "http://127.0.0.1:5000";
+    } else {
+        BASE_URL = "https://town-hall-prototype.onrender.com";
+    }
+
     let quill = new Quill('#comment-textdiv', {
         theme: 'snow', // "snow" is the Reddit-style toolbar theme
         placeholder: 'Add a comment',
@@ -34,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         postContent = JSON.stringify(quill.getContents());
 
         try {
-            let response = await fetch(`http://127.0.0.1:5000/create-thread`, {
+            let response = await fetch(`${BASE_URL}/create-thread`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

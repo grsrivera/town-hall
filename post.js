@@ -109,7 +109,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     let params = new URLSearchParams(window.location.search);
     let threadId = Number(params.get("thread_id"));  
 
-    let response = await fetch(`http://127.0.0.1:5000/get-posts?thread_id=${threadId}`);
+    let BASE_URL;
+    if (window.location.hostname === "127.0.0.1" && window.location.port === "5500") {
+        BASE_URL = "http://127.0.0.1:5000";
+    } else {
+        BASE_URL = "https://town-hall-prototype.onrender.com";
+    }
+    let response = await fetch(`${BASE_URL}/get-posts?thread_id=${threadId}`);
     let data = await response.json();
 
     populateOriginalPost(data[0]);
@@ -167,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         myCommentContent = JSON.stringify(quill.getContents()); // Needs to be json to go to backend
 
         try {
-            let response = await fetch(`http://127.0.0.1:5000/post-reply`, {
+            let response = await fetch(`${BASE_URL}/post-reply`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

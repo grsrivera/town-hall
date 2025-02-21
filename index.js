@@ -63,7 +63,14 @@ function populateThread(thread) {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-    let response = await fetch("http://localhost:5000/recent-threads");
+    let BASE_URL;
+    if (window.location.hostname === "127.0.0.1" && window.location.port === "5500") {
+        BASE_URL = "http://127.0.0.1:5000";
+    } else {
+        BASE_URL = "https://town-hall-prototype.onrender.com";
+    }
+
+    let response = await fetch(`${BASE_URL}/recent-threads`);
     let threads = await response.json();
 
     for (let thread of threads) {

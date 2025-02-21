@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", async function () {
     try {
-        let response = await fetch(`http://127.0.0.1:5000/get-summary`)
+        let BASE_URL;
+        if (window.location.hostname === "127.0.0.1" && window.location.port === "5500") {
+            BASE_URL = "http://127.0.0.1:5000";
+        } else {
+            BASE_URL = "https://town-hall-prototype.onrender.com";
+        }
+
+        let response = await fetch(`${BASE_URL}/get-summary`)
         let data = await response.json()
         console.log(data)
         let summBox = document.querySelector(".summ");
