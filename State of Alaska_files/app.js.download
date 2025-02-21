@@ -1,0 +1,8 @@
+﻿// define the app's global variable
+var app = {};
+
+/* 
+ attach to app the different components,
+ in other words fake a namespace
+ */
+app.utils = {};

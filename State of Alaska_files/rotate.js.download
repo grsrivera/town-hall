@@ -1,0 +1,3 @@
+$('.qturn').on('click', function(){
+  $(this).toggleClass('active');
+});

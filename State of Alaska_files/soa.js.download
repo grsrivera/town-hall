@@ -1,0 +1,229 @@
+/*Accessible Tab Navigation v1.0 - mike foskett - 21/05/10 - http://websemantics.co.uk/resources/accessible_tab_navigation/ */
+//This is the Services Tab
+var accessibleTabs = function() {
+    var nid = "tabnav"
+      , cid = "tabpanel"
+      , c = "on";
+    function addLoadEvent(f) {
+        var o = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = f;
+        } else {
+            window.onload = function() {
+                if (o) {
+                    o();
+                }
+                f();
+            }
+            ;
+        }
+    }
+    function stripAnchorFromURI(u) {
+        return u.slice(u.lastIndexOf('#') + 1)
+    }
+    function tclick() {
+        var tid = stripAnchorFromURI(this.href);
+        if (tid.length) {
+            var l = document.getElementById(nid).getElementsByTagName('li');
+            if (l) {
+                for (var j = 0; j < l.length; j++) {
+                    l[j].className = l[j].className.replace(c, '');
+                }
+            }
+            this.parentNode.className = this.parentNode.className + " " + c;
+            var tc = document.getElementById(cid);
+            if (tc) {
+                var d = tc.getElementsByTagName('div');
+                if (d) {
+                    for (var k = 0; k < d.length; k++) {
+                        d[k].className = d[k].className.replace(c, '');
+                    }
+                }
+            }
+            document.getElementById(tid).className = document.getElementById(tid).className + " " + c;
+        }
+        return false;
+    }
+    function init() {
+        addLoadEvent(function() {
+            var tn = document.getElementById(nid);
+            if (tn) {
+                var As = tn.getElementsByTagName('a');
+                if (As) {
+                    for (var i = 0; i < As.length; i++) {
+                        As[i].onclick = tclick;
+                    }
+                }
+            }
+        });
+    }
+    return {
+        init: init
+    };
+}();
+accessibleTabs.init();
+//This is the My Government Tab
+var accessibleTabs2 = function() {
+    var nid = "tabnav2"
+      , cid = "tabpanel2"
+      , c = "on";
+    function addLoadEvent(f) {
+        var o = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = f;
+        } else {
+            window.onload = function() {
+                if (o) {
+                    o();
+                }
+                f();
+            }
+            ;
+        }
+    }
+    function stripAnchorFromURI(u) {
+        return u.slice(u.lastIndexOf('#') + 1)
+    }
+    function tclick() {
+        var tid = stripAnchorFromURI(this.href);
+        if (tid.length) {
+            var l = document.getElementById(nid).getElementsByTagName('li');
+            if (l) {
+                for (var j = 0; j < l.length; j++) {
+                    l[j].className = l[j].className.replace(c, '');
+                }
+            }
+            this.parentNode.className = this.parentNode.className + " " + c;
+            var tc = document.getElementById(cid);
+            if (tc) {
+                var d = tc.getElementsByTagName('div');
+                if (d) {
+                    for (var k = 0; k < d.length; k++) {
+                        d[k].className = d[k].className.replace(c, '');
+                    }
+                }
+            }
+            document.getElementById(tid).className = document.getElementById(tid).className + " " + c;
+        }
+        return false;
+    }
+    function init() {
+        addLoadEvent(function() {
+            var tn = document.getElementById(nid);
+            if (tn) {
+                var As = tn.getElementsByTagName('a');
+                if (As) {
+                    for (var i = 0; i < As.length; i++) {
+                        As[i].onclick = tclick;
+                    }
+                }
+            }
+        });
+    }
+    return {
+        init: init
+    };
+}();
+accessibleTabs2.init();
+//This is to make the lists under the "My Government" tab link to the other tabs
+var accessibleTabs3 = function() {
+    var nid = "mygov"
+      , cid = "tabpanel2"
+      , c = "on";
+    function addLoadEvent(f) {
+        var o = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = f;
+        } else {
+            window.onload = function() {
+                if (o) {
+                    o();
+                }
+                f();
+            }
+            ;
+        }
+    }
+    function stripAnchorFromURI(u) {
+        return u.slice(u.lastIndexOf('#') + 1)
+    }
+    function tclick() {
+        var tid = stripAnchorFromURI(this.href);
+        if (tid.length) {
+            var l = document.getElementById(nid).getElementsByTagName('li');
+            if (l) {
+                for (var j = 0; j < l.length; j++) {
+                    l[j].className = l[j].className.replace(c, '');
+                }
+            }
+            this.parentNode.className = this.parentNode.className + " " + c;
+            var tc = document.getElementById(cid);
+            if (tc) {
+                var d = tc.getElementsByTagName('div');
+                if (d) {
+                    for (var k = 0; k < d.length; k++) {
+                        d[k].className = d[k].className.replace(c, '');
+                    }
+                }
+            }
+            document.getElementById(tid).className = document.getElementById(tid).className + " " + c;
+        }
+        return false;
+    }
+    function init() {
+        addLoadEvent(function() {
+            var tn = document.getElementById(nid);
+            if (tn) {
+                var As = tn.getElementsByTagName('a');
+                if (As) {
+                    for (var i = 0; i < As.length; i++) {
+                        As[i].onclick = tclick;
+                    }
+                }
+            }
+        });
+    }
+    return {
+        init: init
+    };
+}();
+accessibleTabs3.init();
+
+var screenWidth = (screen.width < 481) ? true : false;
+
+$(function() {
+    $(".topRow").hover(function() {
+        $(this).children("span").fadeOut();
+    }, function() {
+        $(this).children("span").fadeIn();
+    })
+});
+<!--//--><![CDATA[//><!--
+sfHover = function() {
+    var sfEls = document.getElementById("menu_list").getElementsByTagName("LI");
+    for (var i = 0; i < sfEls.length; i++) {
+        sfEls[i].onmouseover = function() {
+            this.className += " sfhover";
+        }
+        sfEls[i].onmouseout = function() {
+            this.className = this.className.replace(new RegExp(" sfhover\\b"), "");
+        }
+    }
+}
+if (window.attachEvent)
+    window.attachEvent("onload", sfHover);
+
+//--><!]]>
+
+document.documentElement.className = "hasJS";
+
+$(".container").on("click", ".alert-box .btn", function() {
+    var $text = $(this);
+    if($(this).text() === "Less") {
+        $(this).parents(".alert-box").css("height", "54px");
+        $(this).text("More");
+    } else {
+        $(this).parents(".alert-box").css("height", "auto");
+        $(this).text("Less");
+    }
+});

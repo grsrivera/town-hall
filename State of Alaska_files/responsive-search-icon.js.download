@@ -1,0 +1,8 @@
+$(function () {
+                            $('.site-header').addClass('js_search_enabled');
+
+                            $('#search_icon_placeholder').on("click", function () {
+                                $('.site-header').addClass('js_search_icon_was_clicked');
+                                $('#search_input_area').focus();
+                            });
+                        });

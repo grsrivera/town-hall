@@ -1,0 +1,117 @@
+﻿// Encapsulate module(s) code in IIFE
+(function (templates, $) {
+    "use strict";
+
+    /*
+     * Beginning of IIFE module
+     */
+    var module = function () {
+
+        /*
+         * Define a global object to which methods and variables will be attached,
+         * so that they are easily shared within the module
+         */
+        var gl = {
+            dom: {},
+            helper: {}
+        };
+
+        /*
+         * Logical structure of the module
+         */
+
+        // Cache any jQuery DOM elements
+        var initDom = function () {
+
+            gl.dom.$officeClosures = $("#office-closures");
+
+        },
+        // Initialize any helper methods
+        initHelper = function () {
+
+            gl.helper.getAjaxBaseUrl = function () {
+                var regex = new RegExp(/^.*\//);
+                return regex.exec(window.location.href)[0];
+            }
+
+            gl.helper.renderOfficeClosureAlerts = function () {
+                // Cache the assigned template from the callback
+                var template = null;
+
+                var callback = function(data) {
+                    template = data;
+                };
+
+                var promise = templates(callback).officeClosureAlert;
+
+                promise.then(function() {
+                    $.ajax({
+                        type: "GET",
+                        url: gl.helper.getAjaxBaseUrl() + "data/home.json?nocache=" + (new Date()).getTime(),
+                        contentType: "application/json: charset=utf-8",
+                        success: function (data) {
+                            if (data === 500 || data === "500") {
+                                if(console && console.log) {
+                                    console.log(data);
+                                }
+                                return;
+                            }
+
+                            gl.dom.$officeClosures.empty();
+                            $.each(data.officeClosures, function(i, item) {
+                                if (item.disabled === "NO") {
+                                    $.tmpl(template, {
+                                        name: item.name,
+                                        when: item.props.when,
+                                        where: item.props.where,
+                                        body: item.props.body
+                                    }).appendTo(gl.dom.$officeClosures);
+                                }
+                            });
+                        },
+                        error: function (data) {
+                            if (console && console.log) {
+                                console.log(data);
+                            }
+                        }
+                    });
+                });
+            };
+
+        },
+        // Initialize any delayed functions
+        initDelayedCallables = function () {
+
+            gl.helper.renderOfficeClosureAlerts();
+
+        },
+        init = function () {
+
+            initDom();
+            initHelper();
+            initDelayedCallables();
+
+        };
+
+        /*
+         * Expose any of the module's methods and/or properties
+         */
+        return {
+            init: init
+        }
+
+    }();
+
+    /*
+     * Initiate module(s) on jQuery document ready
+     */
+    $(function () {
+
+        module.init();
+
+    });
+
+    // JS dependencies: app.utils.templates, jQuery & jQuery Templates
+    // Note: Only one jQuery dependency is injected for both jQuery & jQuery Templates since jQuery Templates extends jQuery
+    //       In addition to the jQuery dependencies, jquery.form.min.js is loaded as well
+} (app.utils.templates, jQuery));

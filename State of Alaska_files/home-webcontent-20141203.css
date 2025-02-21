@@ -1,0 +1,1304 @@
+@charset "utf-8";
+/* CSS Document */
+/* Alaska.gov styling specific to the home page. */
+/* Depends on alaskagov.css */
+/* Version: 10-10-2014 */
+
+/* LAYOUT */
+	/* CONTENT MAIN */
+	/* CONTENT SIDEBAR */
+/* VARIATIONS */
+/* REUSABLE CLASSES */
+	/* BOX */
+	/* LIST MULTI-COLUMN */
+/* SPECIFIC PATTERNS */
+	/* ALERTS */
+	/* TOP ROW */
+	/* NEWS */
+	/* TABS */
+		/* TAB NAVIGATION HORIZONTAL */
+		/* TAB PANEL HORIZONTAL */
+		/* SERVICES TAB */
+		/* TAB NAVIGATION VERTICAL */
+		/* TAB PANEL VERTICAL */
+		/* MY GOVERNMENT */
+			/* STATE AGENCY */
+			/* DEPARTMENT LOGOS */
+	/* SOCIAL MEDIA */
+	/* GOVLTGOV */
+	/* OTHER GOVERNMENT */
+	/* HIGHLIGHTS */
+	/* PUBLIC NOTICES */
+/* HACKS */
+/* PRINT MEDIA QUERY */
+
+/* CONTENT LAYOUT */
+#content{
+	padding: 10px;
+	background: #f0ebdb;
+}
+/* CONTENT MAIN */
+#content #main{
+	float: left;
+	width: 668px;
+}
+/* CONTENT SIDEBAR */
+#content #sidebar{
+	float: right;
+	width: 260px;
+}
+
+/* VARIATIONS */
+/*The following CSS items are slightly different for the homepage than the rest of the pages*/
+h3{
+border: none;	
+}
+
+ul{
+list-style: none;
+}
+
+ul li{
+list-style-image: none;	
+list-style: none;
+}
+
+/* REUSABLE CLASSES */
+/* BOX */
+/*Create the boxes used on the pages*/
+.box{
+	position: relative;
+	width: auto;
+	margin: 0;
+	border: 1px solid #86a6bd;
+	background: #fff;
+}
+/*Header 2 is generally used outside the box elements, but can be use in the box, but needs to be adjusted*/
+.box h2{
+	text-transform: none;
+	margin: 20px 15px 0 15px;
+	padding: 0 0 0 0;
+	/* border-bottom: 1px solid #0d4d7c; */
+}
+/*Puts a larger border on the top of the box when needed*/
+.boxTop{
+	border-top: 5px solid #0d4d7c;
+	width: auto;
+	padding: 0;
+}
+/* LIST MULTI-COLUMN */
+/*Breaking a single <ul> into multiple columns*/
+ul.multi_column{
+	list-style: none;
+	padding: 5px 0 5px 25px;
+	margin: 0;
+}
+
+ul.multi_column li{
+	padding: .5em 0;	
+}
+
+ul.multi_column .column{
+	display: inline-block;
+	width: 237px;
+	float: none;
+	vertical-align: text-top;
+}
+/* SPECIFIC PATTERNS */
+/* ALERTS */
+/* Alerts on top of the page body*/
+#alerts{
+	background: #fff url('../images/alertBar.png') no-repeat top left;
+	border: 4px solid #b90007;
+	padding: 0 0 0 120px;
+	margin: 0 0 5px 0;
+	width: 540px;
+}
+#alerts > p:first-of-type{
+	font-weight: bold;
+	text-transform:uppercase;
+	margin-top: 6px;
+	font-size: 17.12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#alerts > p:last-of-type{
+	margin-bottom: 6px;	
+}
+/* TOP ROW */
+/*The top row of links with Resident, Business, Visitor*/
+.topRow{
+	/*float: left;*/
+	position: relative;
+	display: inline-block;
+	width: 218px;
+	height: 352px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	text-align: left;
+	vertical-align: middle;
+}
+/* Menus replaces image (backgrounds on span tags) on hover through javascript soa.js */
+.topRow span{
+	display: none;
+}
+.hasJS .topRow span{
+	display: block;
+	width: 217px;
+	height: 350px;
+	position:absolute;
+	z-index: 2;
+	background: #000;
+}
+#resident span{
+	background: url('../images/topPanelBG.jpg') 0 0 no-repeat;
+}
+#business span{
+	background: url('../images/topPanelBG.jpg') -217px 0 no-repeat;
+}
+#visitor span{
+	background: url('../images/topPanelBG.jpg') -434px 0 no-repeat;
+}
+#resident{
+	/*margin-right: 5px;*/
+	background: #ebecf0 url('../images/topPanelBG.jpg') 0 -357px no-repeat;
+}
+#business{
+	/*margin-right: 6px;*/
+	background: #ebecf0 url('../images/topPanelBG.jpg') -217px -357px no-repeat;
+}
+#visitor{
+	background: #ebecf0 url('../images/topPanelBG.jpg') -434px -357px no-repeat;
+}
+.topRow span a.topRow_link{
+	width: 217px;
+	height: 350px;
+	display: block;
+	margin: 0;
+	text-indent: -99999px;
+}
+.topRow h2{
+	margin: 0;
+	padding: 0;
+}
+.topRow h2 a{
+	display: block;
+	width: 217px;
+	height: 40px;
+	position: absolute;
+	bottom: 0;
+	text-indent: -99999px;
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+}
+.topRow h3{
+	padding: 0;
+	margin: 10px 10px 0 10px;
+	font-size: .9em;
+	color: #000;
+	font-weight: bold;
+	border-bottom: 1px solid #c3d2de;
+}
+.topRow ul{
+	padding: 0;
+	margin: 0 0 0 20px;
+	list-style: none;
+}
+.topRow ul li{
+	list-style: none;
+	padding: 2px 0;
+	margin: 0;
+	font-size: .8em;
+	line-height: 1.6;
+}
+.topRow li a{
+	padding: 0;	
+}
+.topRow li a:hover, .topRow li a:focus{
+	background: none;	
+}
+
+.topRow a#more{
+	float: right;
+	font-size: .7em;
+	padding: 0 10px 0 0;
+	margin: -2em 0 0 0;
+}
+/* NEWS */
+/*News item box below the Resident Business Visitor section*/
+#news{
+	clear: both;
+	background: #f2f2fa url('../images/newsBG.jpg') no-repeat left center;
+	min-height: 111px;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	font-size: .8em;
+}
+#news h2 {
+	position: absolute;
+	margin: 0;
+}
+#news h2 a{
+	display: block;
+	width: 150px;
+	height: 111px;
+	position: absolute;
+	margin: 0 0 0 10px;
+	padding: 0;
+	top: 0;
+	left: 0;
+	font-size: .8em;
+	text-indent: -9999px;
+}
+
+#news h2 a span{
+	display: block;
+	width: 165px;
+	height: 108px;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background: url('../images/newsBG.jpg') no-repeat;
+}
+
+
+#news ul{
+	padding: 0;
+	margin: -10px 0 0 0;
+	list-style: none;
+}
+
+#news ul li{
+	list-style: none;
+	margin: 5px 0 6px 200px;
+	padding: 0;
+}
+#news ul li a{
+	padding: 0;	
+}
+#news ul li a:hover, #news ul li a:focus{
+	background: none;	
+}
+
+.newsdate{
+	color: #004274;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+ .newsMonth{
+	float: left;
+	width: 25px;
+	text-align: right;
+	padding: 0 5px 0 0;
+}
+
+.newsitem{
+	margin-left: 8px;	
+}
+
+/* TABS */
+/* CSS for JAVASCRIPT - Requires SOA.JS */
+.hasJS .switched {position:absolute; left:-9999px;}
+.hasJS .on {position:relative; top:0; left:0}
+/* TAB NAVIGATION HORIZONTAL */
+/*Creating horizontal Tabbed boxes to use on the page (Example: Services on Homepage)*/
+ul#tabnav{
+	width: 668px; 
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul#tabnav li{
+	display: inline;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+ul#tabnav li a{ 
+	text-align: center;
+	width: 116px;
+	display: block;
+	float: left;
+	padding: 5px;
+	margin: 0 7px -3px 0;
+	text-decoration: none; 
+	color: #0d4d7c;
+	text-transform: uppercase; 
+	border: 1px solid #86a6bd;
+	border-top: 5px solid #0d4d7c;
+	background: #fff;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+ul#tabnav li a:hover, 
+ul#tabnav li a:focus{
+	border-top: 5px solid #ba141a;
+}
+
+/*
+ul#tabnav li a.last{
+	float: right;
+	margin: 0 0 -3px 0;
+}
+*/
+
+ul#tabnav li.on a{  
+color: #ba141a;
+border-top: 5px solid #ba141a;
+border-bottom: 1px solid #fff;
+}
+/* TAB PANEL HORIZONTAL */
+div#tabpanel{
+background: #fff;
+padding: 0px;
+border: 1px solid #86a6bd;
+clear: both;
+margin: -4px 0 0 0;
+}
+
+div#tabpanel div {
+	padding: 10px;
+}
+
+div#tabpanel div.clear {
+	padding: 0;
+}
+
+div#tabpanel div h3 {
+margin: 0;
+padding: 0;
+}
+div#tabpanel div ul li {
+}
+/* SERVICES TAB */
+/* Adds decoration to Services section*/
+#services ul.multi_column{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#services ul.multi_column li{
+	font-size: .8em;
+	list-style: none outside;
+	padding: .5em 0 .5em 20px;
+}
+
+
+#services #tabpanel h3{
+	display: block;
+	margin: 10px 0 0 10px;
+	width: 132px;
+	text-indent: -99999px;
+	float: left;
+}
+
+#services div.services_box{
+	min-height: 260px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#services #how h3{
+	height: 145px;
+	background: url('../images/servicesBG.png') no-repeat  0 0;
+}
+
+#services #how{
+	background: url('../images/servicesHow.jpg') no-repeat right bottom;
+}
+
+#services #education h3{
+	height: 152px;
+	background: url('../images/servicesBG.png') no-repeat  0 -147px;
+}
+
+#services #education{
+	background: url('../images/servicesEducation.jpg') no-repeat right bottom;
+}
+
+#services #health h3{
+	height: 180px;
+	background: url('../images/servicesBG.png') no-repeat  0 -305px;
+}
+
+#services #health{
+	background: url('../images/servicesHealth.jpg') no-repeat right bottom;
+}
+
+#services #jobs h3{
+	height: 182px;
+	background: url('../images/servicesBG.png') no-repeat  0 -497px;
+}
+
+#services #jobs{
+	background: url('../images/servicesJob.jpg') no-repeat right bottom;
+}
+
+#services #safety h3{
+	height: 207px;
+	background: url('../images/servicesBG.png') no-repeat  0 -692px;
+}
+
+#services #safety{
+	background: url('../images/servicesSafety.jpg') no-repeat right bottom;
+}
+/* TAB NAVIGATION VERTICAL */
+/*For vertical tabbed navigation (Example: My Government on Homepage)*/
+ul#tabnav2{
+float: left;
+padding: 0;
+margin: 0;
+width: 215px;
+background: #c3d1de;
+display: block;
+}
+
+ul#tabnav2 li{
+list-style: none;
+padding:0;
+margin: 0;
+font-size: .8em;
+line-height: 1.3em;
+}
+
+ul#tabnav2 li a{ 
+text-decoration: none;
+font-weight: normal;
+color: #000;
+width: 210px;
+display: block;
+padding: 7px 0 6px 10px;
+}
+
+ul#tabnav2 li a:hover, ul#tabnav2 li a:focus{
+	background: #fff;
+	border-left: 5px solid #0d4d7c;
+	padding: 7px 0 6px 5px;
+}
+
+ul#tabnav2 li a.last{
+
+}
+
+ul#tabnav2 li.on a{  
+background: #fff;
+border-left: 5px solid #ba141a;
+padding: 7px 0 6px 5px;
+}
+/* TAB PANEL VERTICAL */
+div#tabpanel2{
+float: right;
+width: 440px;
+padding: 0;
+margin: 0;
+display: block;
+}
+
+div#tabpanel2 ul.multi_column{
+	padding: 0;
+	margin: 0;
+}
+
+div#tabpanel2 div {
+	padding: 10px;
+	margin: 0;
+	background: none;
+}
+
+div#tabpanel2 div.left,
+div#tabpanel2 div.right {
+	padding: 0;
+}
+
+div#tabpanel2 div.clear {
+padding: 0;
+}
+
+div#tabpanel2 div h3 {
+margin: 0;
+padding: 0;
+}
+
+div#tabpanel2 div ul li {
+
+}
+
+/* MY GOVERNMENT */
+/*Styling for the My Government information*/
+#mygov ul li{
+	width: 170px;	
+}
+
+#tabpanel2 #mygov{
+	background: url('../images/myGovBG.png') no-repeat center center;	
+}
+
+#mygov p{
+	padding: 0 0 0 0;
+	margin: 20px 20px 0 0;
+	font-size: 1.2em;
+	text-align: center;
+}
+/* STATE AGENCY */
+
+.stateAgency{
+	position: relative;
+	width: 100%;
+	min-height: 480px;
+	padding: 0;
+	margin: 0;
+}
+
+.stateAgency h3{
+	color: #000;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+	font-size: 1.5em;
+	line-height: 1.2em;
+}
+
+.stateAgency h4{
+	font-size: 1em;
+	font-weight: normal;
+	width: 175px;
+	padding: 20px 0 0 0;
+	margin: 0 20px 0 0;
+	border-bottom: 1px solid #c3d2de;
+}
+
+#tabpanel2 .switched h3 div.dept_title{
+	font-size: .7em;
+	padding: 5px 0 0 0;
+	margin: 0 0 -.5em 0;
+}
+
+#tabpanel2 .stateAgency ul li{
+	font-size: .8em;
+	list-style: none;
+	margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+#tabpanel2 .switched .agency_info{
+	margin: 0 0 0 100px;
+	padding: 0;
+	width: 315px;
+}
+
+#tabpanel2 .switched .agency_info p{
+	padding: 10px 0 0 0;
+	margin: 0;
+}
+
+.stateAgency .right ul, .stateAgency .left ul{
+	width: 180px;
+	padding: 0;
+    margin: 0;
+}
+
+.stateAgency .logo{
+	display: block;
+	width: 88px;
+	height: 88px;
+	margin: 10px 0 0 0;
+	padding: 0 20px 0 10px;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.stateAgency .dept_home{
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+	font-size: .9em;
+}
+
+.stateAgency .dept_home a{
+	padding: 9px 35px 9px 0;
+	background: url('../images/blueBTN.png') no-repeat top right;
+}
+
+.stateAgency .logo img{
+	position: relative;
+}
+/* DEPARTMENT LOGOS */
+#doa .logo img{
+	top: -77px;	
+}
+#correct .logo img{
+	top: -156px;	
+}
+#eed .logo img{
+	top: -239px;
+    max-width: 102%;	
+}
+#dec .logo img{
+	top: -307px;	
+}
+#adfg .logo img{
+	top: -388px;
+}
+#hss .logo img{
+	top: -464px;	
+}
+#law .logo img{
+	top: -544px;
+}
+#dnr .logo img{
+	top: -620px;	
+}
+#dps .logo img{
+	top: -700px;
+}
+#dor .logo img{
+	top: -777px;	
+}
+#dot .logo img{
+	top: -856px;
+}
+/* SOCIAL MEDIA */
+/*Social Media box at bottom of homepage*/
+#socialMedia{
+	padding: 0;
+	height: 65px;
+}
+
+#socialMedia ul{
+	padding: 0 0 0 8px;
+	margin: 0;
+	line-height: normal;
+}
+
+#socialMedia ul li{
+	list-style: none;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+#socialMedia ul li a{
+	display: block;
+	width: 45px;
+	height: 45px;
+	margin: 5px 2px 0 0;
+	padding: 0;
+	text-indent: -99999px;
+}
+
+#socialMedia ul li#more_socialMedia{
+	float: right;
+	height: auto;
+}
+
+#socialMedia ul li#more_socialMedia a{
+	display: inherit;
+	width: 250px;
+	padding: 7px 37px 0 0;
+	margin: 15px 10px 0 0;
+	text-align: right;
+	text-indent: inherit;
+	background: url('../images/blueBTN.png') no-repeat top right;
+}
+
+#socialMedia ul li a#facebook{
+	background: url('../images/socialMediaBTN.png') no-repeat 0 0;	
+}
+#socialMedia ul li a#twitter{
+	background: url('../images/socialMediaBTN.png') no-repeat -50px 0;	
+}
+#socialMedia ul li a#flickr{
+	background: url('../images/socialMediaBTN.png') no-repeat -100px 0;	
+}
+#socialMedia ul li a#vimeo{
+	background: url('../images/socialMediaBTN.png') no-repeat -150px 0;	
+}
+#socialMedia ul li a#youTube{
+
+
+	background: url('../images/socialMediaBTN.png') no-repeat -200px 0;	
+}
+#socialMedia ul li a#rss{
+	background: url('../images/socialMediaBTN.png') no-repeat -250px 0;	
+}
+#socialMedia ul li a#list{
+	background: url('../images/socialMediaBTN.png') no-repeat -300px 0;	
+}
+/* GOVLTGOV */
+/*Alaska Executive Branch, with the Lt. Governor and Governor links, as well as the Flag Status link*/
+.card {
+	display: block;
+}
+.card-image {
+	display: inline-block;
+	width: 100px;
+	margin: 7px;
+	float: left;
+	border: 3px solid #024274;
+
+}
+.card-link {
+	display: inline-block;
+	text-align: center;
+	padding: 7px;
+	float: right;
+	padding-top: 20px;
+}
+.upsize {
+	font-size: 1.2em;
+}
+#dunleavy {
+	background-image: url(/images/dunleavy01.jpg);
+	background-clip: content-box;
+	background-size: 100px;
+	background-repeat: no-repeat;
+	height: 100px;
+
+}
+
+#meyer {
+	background-image: url(/images/meyer01.jpg);
+	background-clip: content-box;
+	background-size: 100px;
+	background-repeat: no-repeat;
+	height: 100px;
+
+}
+
+#govLtgov{
+	position: relative;
+	text-align: center;
+	background: #dbdbf5;
+}
+
+#govLtgov h2{
+	width: 250px;
+	height: 23px;
+	margin: 0 0 0 6px;
+	padding: 0;
+	text-indent: -9999px;
+	background: url('../images/executiveAgencyPanel2022.jpg') 0 0 no-repeat;
+}
+
+#govLtgov ul, #otherGovernment ul{
+	display: inline-block;
+	padding: 0;
+	margin: 0 0 10px 7px;
+}
+
+#govLtgov ul li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#govLtgov li a{
+	padding: 0;	
+}
+#govLtgov li a:hover, #govLtgov li a:focus{
+	background: none;	
+}
+
+#govLtgov li a#governor{
+	display: block;
+	width: 244px;
+	height: 128px;
+	margin: 0 0 3px 0;
+}
+
+
+#govLtgov li a#governor span{
+	display: block;
+	width: 244px;
+	height: 128px;
+	margin: 0 0 3px 0;
+	position: absolute;
+	z-index: 1;
+	background: url('../images/executiveAgencyPanel2022.jpg') 0 -23px no-repeat;
+}
+
+#govLtgov li a#governor:hover span{
+	background: url('../images/executiveAgencyPanel2022.jpg') -245px -23px no-repeat;
+}
+
+#govLtgov li a#flagStatus{
+	display: block;
+	width: 123px;
+	height: 40px;
+	text-indent: -99999px;
+	background: url('../images/flagStatusBTN.png') no-repeat;
+	position: absolute;
+	top: -55px;
+	right: 0;
+}
+
+#govLtgov ul li ul.gov_socialMedia{
+	position: absolute;
+	top: 120px;
+	left: 120px;
+	padding: 0;
+	margin: 0;
+}
+
+#govLtgov ul li ul.gov_socialMedia li{
+	display: block;
+	width: 28px;
+	height: 30px;
+	float: left;
+}
+
+#govLtgov ul li ul.gov_socialMedia a.gov_socialMedia{
+	text-indent: -99999px;
+	display: block;
+	width: 28px;
+	height: 22px;
+	margin: 0 0 0 4px;
+	position: absolute;
+	z-index: 2;
+}
+
+#govLtgov ul li ul.ltgov_socialMedia{
+	position: absolute;
+	top: 210px;
+	left: 120px;
+	padding: 0;
+	margin: 0;
+}
+
+#govLtgov ul li ul.ltgov_socialMedia li{
+	display: block;
+	width: 28px;
+	height: 30px;
+	float: left;
+}
+
+#govLtgov ul li ul.ltgov_socialMedia a.ltgov_socialMedia{
+	text-indent: -99999px;
+	display: block;
+	width: 28px;
+	height: 22px;
+	margin: 0 0 0 4px;
+	position: absolute;
+	z-index: 2;
+}
+
+#govLtgov li a#ltgovernor{
+	display: block;
+	width: 244px;
+	height: 85px;
+}
+
+#govLtgov li a#ltgovernor span{
+	display: block;
+	width: 244px;
+	height: 85px;
+	position: absolute;
+	z-index: 1;
+	top: 155px;
+	background: url('../images/executiveAgencyPanel2022.jpg') 0 -156px no-repeat;
+}
+
+#govLtgov li a#ltgovernor:hover span{
+	background: url('../images/executiveAgencyPanel2022.jpg') -245px -156px no-repeat;
+}
+/* OTHER GOVERNMENT */
+/*The non executive branch Alaska Government pages*/
+#otherGovernment{
+	display: block;
+	min-height: 227px;
+	margin: 5px  0 0 0;
+	padding: 0 0 0 0;
+	text-align: center;
+	background: #dbdbf5;
+	position: relative;
+}
+
+#otherGovernment ul{
+	padding: 0;	
+}
+
+#otherGovernment ul li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#otherGovernment ul a{
+	display: block;
+	width: 244px;
+	height: 65px;
+	padding: 5px 0 0 0;
+	margin-top: 6px;
+}
+
+#otherGovernment ul a span{
+	display: block;
+	width: 244px;
+	height: 70px;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+#otherGovernment ul a#legislature span{
+	background: url('../images/executiveAgencyPanel2022.jpg') 0 -247px no-repeat;
+	margin: 2px 0 0 0;
+	top: 3px;
+}
+
+#otherGovernment ul a#legislature:hover span{
+	background: url('../images/executiveAgencyPanel2022.jpg') -245px -247px no-repeat;
+}
+
+#otherGovernment ul a#courts span{
+	background: url('../images/executiveAgencyPanel2022.jpg') 0 -320px no-repeat;
+	margin: 2px 0 0 0;
+	top: 75px;
+}
+
+#otherGovernment ul a#courts:hover span{
+	background: url('../images/executiveAgencyPanel2022.jpg') -245px -320px no-repeat;
+}
+
+#otherGovernment ul a#congress span{
+	background: url('../images/executiveAgencyPanel2022.jpg') 0 -393px no-repeat;
+	margin: 2px 0 2px 0;
+	top: 148px;
+}
+
+#otherGovernment ul a#congress:hover span{
+	background: url('../images/executiveAgencyPanel2022.jpg') -245px -393px no-repeat;
+}
+/* HIGHLIGHTS */
+/*Box to hold the links of highlights*/
+#highlights{
+	padding: 5px 0 3px 0;
+	text-align: center;
+}
+
+#highlights ul{
+	padding: 0;
+	margin: 0;
+}
+
+#highlights ul li{
+	list-style: none;
+	padding: 0;
+	margin: 0 0 5px 4px;
+	line-height: normal;
+}
+
+#highlights ul li a{
+	padding: 0;
+	margin: 0;
+}
+
+#highlights ul li a:hover, #highlights ul li a:focus{
+	background: none;	
+}
+
+#highlights ul li a img{
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+/* PUBLIC NOTICES */
+/*Box to hold the Public Notices*/
+#publicNotice{
+	margin: 0;
+	padding: 0;
+	min-height: 500px;
+}
+
+#publicNotice ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#publicNotice ul li{
+	clear: both;
+	padding: 0;
+	list-style: none;
+}
+
+#publicNotice ul .noticeMonth{
+	width: 60px;
+	float: left;
+	padding: 0 2px 2px 2px;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+}
+
+#publicNotice ul .noticeDay{
+	font-weight: bold;
+	color: #a7c1d5;
+	font-size: 38px;
+	line-height: 30px;
+}
+
+#publicNotice ul .noticeItem{
+	display: block;
+	width: 190px;
+	margin: 2px 0 0 60px;
+	line-height: 1em;
+}
+
+#publicNotice ul .noticeLocation{
+	display: block;
+	font-style: italic;
+	font-size: .9em;
+	line-height: normal;
+}
+
+#publicNotice ul li a{
+	display: block;
+	min-height: 45px;
+	padding: 5px 0;
+	border-bottom: 1px solid #d7e7f3;
+	color: #00345F;
+}
+
+#publicNotice ul li a:hover, #publicNotice ul li a:focus{
+	background: #edf2f7;
+	text-decoration: none;
+}
+
+a#more_notices{
+	/*position: absolute;
+	bottom: 0;
+	right: 0; */
+	margin: 10px 10px 0 0;
+	padding: 8px 37px 10px 0;
+	text-align: right;
+	display: block;
+	font-size: .9em;
+	background: url('../images/blueBTN.png') no-repeat top right;
+}
+
+a#more_notices:hover, a#more_notices:focus{
+	
+}
+/* KIDS CORNER */
+/*The Alaska Kids section */
+#kids{
+	position: relative;
+	padding: 0;
+	margin: 0;
+	height: 74px;
+	margin-bottom: 10px;
+	background-color: #0d4d7c;
+}
+
+#kids ul{
+	padding: 5px;
+	margin: 0;
+	list-style: none;
+}
+
+#kids li{	
+	padding: 0;
+	margin: 0;
+	font-variant: small-caps;
+	font-weight: bold;
+	line-height: 1.2em;
+	list-style: none;
+}
+
+#kids li a{
+	padding: 0;	
+	color: #00345F;
+}
+
+#kids li a:hover, #kids li a:focus{
+	background: none;	
+}
+
+#kids li a#kids_more span{
+	display: block;
+	width: 260px;
+	height: 63px;
+	position: absolute;
+	top: 0;
+	left: 6px;
+	z-index: 1;
+	background: url('../images/kidscornerBG.jpg') no-repeat;
+}
+/* HACKS */
+/* iPhoneHacks carried from previous style sheet. */
+@media handheld, only screen and (max-device-width: 480px) {
+	#news ul{
+		font-size: .8em;
+	}
+	
+	#news li{
+		font-size: .8em;	
+	}
+}
+/* PRINT MEDIA QUERY */
+@media print {
+	/* RESETS AND REMOVALS */
+	/* Removing navigational content */
+	#resident, #business, #visitor, #services, #tabnav2, #mygov, #main > h2, div#tabpanel2, ul#tabnav2, #socialMedia, #kids_title, #kids, a#more_notices, #department_footer, #header a#title span,  #govLtgov li a#governor span, #govLtgov li a#ltgovernor span, .gov_socialMedia, .ltgov_socialMedia, #otherGovernment ul a#legislature span, #otherGovernment ul a#courts span, #otherGovernment ul a#congress, #govLtgov li a#flagStatus {
+		display: none;	
+	}
+	/* Setting defaults for elements */
+	h2 {
+		margin-top: 1em;
+		border: none;
+	}
+	ul, ol, dl {
+		font-size: 12pt;	
+	}
+	/* removing border from .box elements */
+	.box {
+		border: none; 
+	}
+	/* Setting default parameters for various containers */
+	#container, .box, #content #main, #content #sidebar, #publicNotice, #header {
+		width: 100%;
+		float: none;
+		border: none;
+		font-size: 12pt;
+		min-height: 0;
+		line-height: 1.5;
+	}
+	/* HEADER */
+	#header, #header a#title {
+		height: auto;
+		min-height: none;
+		background: none;	
+		font-size: 24pt;
+		text-transform:uppercase;
+	}
+	/* GOVERNMENT SECTION */
+	#govLtgov, #otherGovernment, #govLtgov li a#governor, #govLtgov li a#ltgovernor, #otherGovernment ul a, #govLtgov h2 {
+		position: static; 
+		background: none;
+		text-indent: 0;
+		width:auto;
+		height: auto;
+		float: none;
+		min-height: 0;
+		line-height: 1.5;
+		border: none;
+	}
+	#govLtgov {
+		width: 50%;
+		margin: 0;
+		padding: 0; 
+	 }
+	#govLtgov h2, #otherGovernment:before {
+		text-transform: uppercase;
+		padding: 5pt 0;
+		margin: 0;
+		font-size:18pt;
+	}
+	#otherGovernment:before {
+		content: "Other Government Branches";
+		margin-top: 1em; 
+		display: block;
+	}
+	#govLtgov li a:after, #otherGovernment ul a:after {
+		content:attr(href);
+		margin-left: 1em;
+		font-style: italic;	 
+	}
+	/* HIGHLIGHTS */
+	#highlights ul li {
+		margin-bottom: 1em;	
+	}
+	#highlights a img {
+		vertical-align: middle;	
+	}
+	/* Adds url after each highlight graphic */
+	#highlights a:after {
+		content: attr(href);
+		margin-left: 1em;
+		font-size: 100%;
+		font-style: italic;	
+	}
+	/* PUBLIC NOTICE */
+	#publicNotice ul .noticeMonth, #publicNotice ul .noticeItem, #publicNotice ul .noticeLocation {
+		display: inline;
+		line-height: inherit;
+		width: auto;
+		margin: 0;	
+	}
+	#publicNotice ul .noticeItem, #publicNotice ul .noticeLocation {
+		margin-left: 2em;
+	}
+	#publicNotice ul .noticeDay {
+		font-size: inherit;
+		line-height: inherit;	
+	}
+	#publicNotice ul .noticeItem, #publicNotice ul li a {
+		width: auto;
+		float: none;
+		border: none;
+		height: auto;
+		min-height: 0;	
+	}
+	#publicNotice ul li {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 90%;	
+	}
+	/* LATEST NEWS */
+	#news {
+		background: none;
+		font-size: 12pt;
+		height: auto;
+		width: 50%;
+		position: absolute;
+		right: 0;
+		top: .5em; 	
+	}
+	#news h2 {
+		position: static;
+		border: none;
+		padding: inherit;	
+	}
+	#news h2 a {
+		display: inline;
+		text-indent: 0;
+		position: static;
+		text-transform:uppercase;
+		padding: 5pt 0;
+		margin: 1em 0 0 0;
+		height: auto;
+		width: auto;
+		font-size: 18pt;
+	}
+	#news h2 a span {
+		display: none;	
+	}
+	#news br {
+		display: none;	
+	}
+	#news ul li {
+		margin: 1em 0 0 0;
+	}
+	.newsMonth {
+		float: none;
+		display: inline;
+		text-align: left;	
+	}
+	.newsitem {
+		margin-left: 2em;	
+	}
+}

@@ -1,0 +1,83 @@
+
+    /* Legacy Look and Feel - Required Native Language Greetings CSS */
+.greetings {
+    padding: 20px;
+    background-color: #004274; /* Dark Blue */
+    color: white !important;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: #fd9c06; /* Orange */
+}
+
+.language-link:link {
+    text-decoration: underline;
+    color: white !important;
+}
+.language-link:visited{
+    text-decoration: underline;
+    opacity: .7;
+    color: white !important;
+}
+.language-link:hover{
+    text-decoration: underline;
+    color: #fd9c06; /* Orange */
+}
+.language-link:active{
+    text-decoration: underline;
+    color: red !important; /* Orange */
+
+}
+.greeting, .speaker{
+    display: inline;
+}
+#required-greeting-popup dd.speaker {
+    font-size: 75%;
+  }
+#required-greeting-popup dd.speaker button {
+    background-image: url(https://webcontent.alaska.gov/style/soa/20180912/greetingassets/speaker.png);
+    padding: 0 0 0 10px;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 10px 2px;
+    text-indent: -40000px;
+    width: 25px;
+
+}
+p.visuallyhidden {
+    left: 0;
+    position: absolute;
+    top: -400px;
+}
+#required-greeting-popup .greeting {
+    font-size: 22px;
+    font-family: "Adobe Caslon", Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+    font-style: italic;
+  line-height: 20px;
+    max-width: 340px;
+    width: auto;
+    float: left;
+    text-align: right;
+    margin: 0;
+    padding-bottom: 10px;
+}

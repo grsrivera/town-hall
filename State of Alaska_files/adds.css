@@ -1,0 +1,34 @@
+.qturn {
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+  outline: 0;
+}
+
+.qturn.active {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  color: #ff5200;
+}
+
+a.qturn {
+    text-decoration: none !important;
+}
+
+a.qturn:hover {
+	  color: #c61322;
+
+}
+
+a.qturn:focus {
+	background-color: transparent;
+	outline: none;
+}

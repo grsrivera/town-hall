@@ -1,0 +1,76 @@
+var nLangs = [
+        {
+            type:"Deg Xinag",
+            term:"Ade’ ndadz dengit’a?",
+            eng:"Hello, how are you?",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/deg-xinag.MP3"
+        },{
+            type:"Unangax̂",
+            term:"Aang",
+            eng:"Yes / Hi",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/aang-unangax.MP3"
+        },{
+            type:"Eyak",
+            term:"AwA’ahdah aanda’ laxsa’a’ch’t!",
+            eng:"Thank you for coming here!",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/awa-eyak.MP3"
+        },{
+            type:"Central Yup’ik",
+            term:"Cama-i, quyana tailuci!",
+            eng:"Greetings, thank you for coming!",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/cama-i-cen-yupik.MP3"
+        },{
+            type:"Iñupiaq",
+            term:"Paġlagivsi!",
+            eng:"We welcome you!",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/paglagivsi-inupiaq.MP3"
+        },{
+            type:"St. Lawrence Island Yupik",
+            term:"Quyaakamsi tagilghiisi",
+            eng:"Thank you all for coming",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/st-lawrence-island-yupik.MP3"
+        },{
+            type:"Tlingit",
+            term:"Yak’éi haat yigoodée!",
+            eng:"It is good that you have come here!",
+            url:"https://www.commerce.alaska.gov/web/dcra/AKNativeLanguagePreservationAdvisoryCouncil/Languages.aspx",
+            audio:"https://webcontent.alaska.gov/style/soa/20190404/greetingAssets/yak-ei-tlingit.MP3"
+        }
+    ];
+
+    var nlNow = new Date();
+    var nlStart = new Date(nlNow.getFullYear(), 0, 0);
+    var nlDiff = (nlNow - nlStart) + ((nlStart.getTimezoneOffset() - nlNow.getTimezoneOffset()) * 60 * 1000);
+    var nlDayOfYear = Math.floor(nlDiff / (1000 * 60 * 60 * 24));
+    var nLang = nLangs[nlDayOfYear % nLangs.length];
+    // Create list item and anchor
+    var nlLi = $("<li id=\"nativeLanguage\"></li>");
+    var nlAudio = $("<audio id=\"nativeLanguageAudio\" src=\""+nLang.audio+"\" preload=\"auto\"></audio>");
+    var nlTerm = $("<a id=\"nativeLanguageTerm\" href=\"\" title=\"Listen to pronunciation\">"+nLang.term+"<span></span></a>");
+    var nlEng = $("<span id=\"nativeLanguageEng\">&quot;"+nLang.eng+"&quot;</span>");
+    var nlType = $("<a id=\"nativeLanguageType\" href=\""+nLang.url+"\" target=\"_blank\" style=\"display:none;\">Learn about the <em>"+nLang.type+"</em> language.</a>");
+
+    nlLi.append(nlTerm, nlAudio, nlEng, nlType);
+    $("#menu-statewide-navigation > li:first").after(nlLi);
+    // Bindings
+    var nlFade = 0;
+    var nlShowType = function(){
+        nlEng.stop(true,true).fadeOut(nlFade);
+        nlType.stop(true,true).fadeIn(nlFade);
+    };
+    var nlShowTerm = function(){
+        nlEng.stop(true,true).fadeIn(nlFade);
+        nlType.stop(true,true).fadeOut(nlFade);
+    };
+    nlLi.hover(nlShowType, nlShowTerm);
+    $("a", nlLi).focus(nlShowType).blur(nlShowTerm);
+    nlTerm.click(function(e){
+        e.preventDefault();
+        nlAudio.trigger("play");
+    });

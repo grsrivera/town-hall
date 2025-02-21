@@ -1,0 +1,23 @@
+﻿(function (utils, $) {
+
+    var getTemplate = function (template, callback) {
+        return $.ajax({
+            url: "/app-js/templates/" + template,
+            type: 'get',
+            dataType: 'html',
+            async: true,
+            success: callback
+        });
+    };
+
+    utils.templates = function (callback) {
+
+        var officeClosureAlert = getTemplate("office-closure-alert.html", callback);
+
+        return {
+            officeClosureAlert: officeClosureAlert,
+        };
+    };
+
+    // JS depandencies: app.utils, jQuery & jQuery Template
+}(app.utils, jQuery));
