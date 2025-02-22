@@ -1,3 +1,7 @@
+body {
+    background: #ebecf0 url('img/glacier_background.jpg') 
+}
+
 #menu-statewide-navigation img {
     height: 40px;
 }
