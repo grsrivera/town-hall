@@ -108,7 +108,7 @@ ul.multi_column .column{
 /* ALERTS */
 /* Alerts on top of the page body*/
 #alerts{
-	background: #fff url('../images/alertBar.png') no-repeat top left;
+	background: #fff url('https://alaska.gov/images/alertBar.png') no-repeat top left;
 	border: 4px solid #b90007;
 	padding: 0 0 0 120px;
 	margin: 0 0 5px 0;
@@ -150,24 +150,24 @@ ul.multi_column .column{
 	background: #000;
 }
 #resident span{
-	background: url('../images/topPanelBG.jpg') 0 0 no-repeat;
+	background: url('https://alaska.gov/images/topPanelBG.jpg') 0 0 no-repeat;
 }
 #business span{
-	background: url('../images/topPanelBG.jpg') -217px 0 no-repeat;
+	background: url('https://alaska.gov/images/topPanelBG.jpg') -217px 0 no-repeat;
 }
 #visitor span{
-	background: url('../images/topPanelBG.jpg') -434px 0 no-repeat;
+	background: url('https://alaska.gov/images/topPanelBG.jpg') -434px 0 no-repeat;
 }
 #resident{
 	/*margin-right: 5px;*/
-	background: #ebecf0 url('../images/topPanelBG.jpg') 0 -357px no-repeat;
+	background: #ebecf0 url('https://alaska.gov/images/topPanelBG.jpg') 0 -357px no-repeat;
 }
 #business{
 	/*margin-right: 6px;*/
-	background: #ebecf0 url('../images/topPanelBG.jpg') -217px -357px no-repeat;
+	background: #ebecf0 url('https://alaska.gov/images/topPanelBG.jpg') -217px -357px no-repeat;
 }
 #visitor{
-	background: #ebecf0 url('../images/topPanelBG.jpg') -434px -357px no-repeat;
+	background: #ebecf0 url('https://alaska.gov/images/topPanelBG.jpg') -434px -357px no-repeat;
 }
 .topRow span a.topRow_link{
 	width: 217px;
@@ -228,7 +228,7 @@ ul.multi_column .column{
 /*News item box below the Resident Business Visitor section*/
 #news{
 	clear: both;
-	background: #f2f2fa url('../images/newsBG.jpg') no-repeat left center;
+	background: #f2f2fa url('https://alaska.gov/images/newsBG.jpg') no-repeat left center;
 	min-height: 111px;
 	position: relative;
 	padding: 0;
@@ -262,7 +262,7 @@ ul.multi_column .column{
 	top: 0;
 	left: 0;
 	z-index: 10;
-	background: url('../images/newsBG.jpg') no-repeat;
+	background: url('https://alaska.gov/images/newsBG.jpg') no-repeat;
 }
 
 
@@ -411,47 +411,47 @@ div#tabpanel div ul li {
 
 #services #how h3{
 	height: 145px;
-	background: url('../images/servicesBG.png') no-repeat  0 0;
+	background: url('https://alaska.gov/images/servicesBG.png') no-repeat  0 0;
 }
 
 #services #how{
-	background: url('../images/servicesHow.jpg') no-repeat right bottom;
+	background: url('https://alaska.gov/images/servicesHow.jpg') no-repeat right bottom;
 }
 
 #services #education h3{
 	height: 152px;
-	background: url('../images/servicesBG.png') no-repeat  0 -147px;
+	background: url('https://alaska.gov/images/servicesBG.png') no-repeat  0 -147px;
 }
 
 #services #education{
-	background: url('../images/servicesEducation.jpg') no-repeat right bottom;
+	background: url('https://alaska.gov/images/servicesEducation.jpg') no-repeat right bottom;
 }
 
 #services #health h3{
 	height: 180px;
-	background: url('../images/servicesBG.png') no-repeat  0 -305px;
+	background: url('https://alaska.gov/images/servicesBG.png') no-repeat  0 -305px;
 }
 
 #services #health{
-	background: url('../images/servicesHealth.jpg') no-repeat right bottom;
+	background: url('https://alaska.gov/images/servicesHealth.jpg') no-repeat right bottom;
 }
 
 #services #jobs h3{
 	height: 182px;
-	background: url('../images/servicesBG.png') no-repeat  0 -497px;
+	background: url('https://alaska.gov/images/servicesBG.png') no-repeat  0 -497px;
 }
 
 #services #jobs{
-	background: url('../images/servicesJob.jpg') no-repeat right bottom;
+	background: url('https://alaska.gov/images/servicesJob.jpg') no-repeat right bottom;
 }
 
 #services #safety h3{
 	height: 207px;
-	background: url('../images/servicesBG.png') no-repeat  0 -692px;
+	background: url('https://alaska.gov/images/servicesBG.png') no-repeat  0 -692px;
 }
 
 #services #safety{
-	background: url('../images/servicesSafety.jpg') no-repeat right bottom;
+	background: url('https://alaska.gov/images/servicesSafety.jpg') no-repeat right bottom;
 }
 /* TAB NAVIGATION VERTICAL */
 /*For vertical tabbed navigation (Example: My Government on Homepage)*/
@@ -541,7 +541,7 @@ div#tabpanel2 div ul li {
 }
 
 #tabpanel2 #mygov{
-	background: url('../images/myGovBG.png') no-repeat center center;	
+	background: url('https://alaska.gov/images/myGovBG.png') no-repeat center center;	
 }
 
 #mygov p{
@@ -628,7 +628,7 @@ div#tabpanel2 div ul li {
 
 .stateAgency .dept_home a{
 	padding: 9px 35px 9px 0;
-	background: url('../images/blueBTN.png') no-repeat top right;
+	background: url('https://alaska.gov/images/blueBTN.png') no-repeat top right;
 }
 
 .stateAgency .logo img{
@@ -710,31 +710,31 @@ div#tabpanel2 div ul li {
 	margin: 15px 10px 0 0;
 	text-align: right;
 	text-indent: inherit;
-	background: url('../images/blueBTN.png') no-repeat top right;
+	background: url('https://alaska.gov/images/blueBTN.png') no-repeat top right;
 }
 
 #socialMedia ul li a#facebook{
-	background: url('../images/socialMediaBTN.png') no-repeat 0 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat 0 0;	
 }
 #socialMedia ul li a#twitter{
-	background: url('../images/socialMediaBTN.png') no-repeat -50px 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat -50px 0;	
 }
 #socialMedia ul li a#flickr{
-	background: url('../images/socialMediaBTN.png') no-repeat -100px 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat -100px 0;	
 }
 #socialMedia ul li a#vimeo{
-	background: url('../images/socialMediaBTN.png') no-repeat -150px 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat -150px 0;	
 }
 #socialMedia ul li a#youTube{
 
 
-	background: url('../images/socialMediaBTN.png') no-repeat -200px 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat -200px 0;	
 }
 #socialMedia ul li a#rss{
-	background: url('../images/socialMediaBTN.png') no-repeat -250px 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat -250px 0;	
 }
 #socialMedia ul li a#list{
-	background: url('../images/socialMediaBTN.png') no-repeat -300px 0;	
+	background: url('https://alaska.gov/images/socialMediaBTN.png') no-repeat -300px 0;	
 }
 /* GOVLTGOV */
 /*Alaska Executive Branch, with the Lt. Governor and Governor links, as well as the Flag Status link*/
@@ -789,7 +789,7 @@ div#tabpanel2 div ul li {
 	margin: 0 0 0 6px;
 	padding: 0;
 	text-indent: -9999px;
-	background: url('../images/executiveAgencyPanel2022.jpg') 0 0 no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') 0 0 no-repeat;
 }
 
 #govLtgov ul, #otherGovernment ul{
@@ -826,11 +826,11 @@ div#tabpanel2 div ul li {
 	margin: 0 0 3px 0;
 	position: absolute;
 	z-index: 1;
-	background: url('../images/executiveAgencyPanel2022.jpg') 0 -23px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') 0 -23px no-repeat;
 }
 
 #govLtgov li a#governor:hover span{
-	background: url('../images/executiveAgencyPanel2022.jpg') -245px -23px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') -245px -23px no-repeat;
 }
 
 #govLtgov li a#flagStatus{
@@ -838,7 +838,7 @@ div#tabpanel2 div ul li {
 	width: 123px;
 	height: 40px;
 	text-indent: -99999px;
-	background: url('../images/flagStatusBTN.png') no-repeat;
+	background: url('https://alaska.gov/images/flagStatusBTN.png') no-repeat;
 	position: absolute;
 	top: -55px;
 	right: 0;
@@ -907,11 +907,11 @@ div#tabpanel2 div ul li {
 	position: absolute;
 	z-index: 1;
 	top: 155px;
-	background: url('../images/executiveAgencyPanel2022.jpg') 0 -156px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') 0 -156px no-repeat;
 }
 
 #govLtgov li a#ltgovernor:hover span{
-	background: url('../images/executiveAgencyPanel2022.jpg') -245px -156px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') -245px -156px no-repeat;
 }
 /* OTHER GOVERNMENT */
 /*The non executive branch Alaska Government pages*/
@@ -953,33 +953,33 @@ div#tabpanel2 div ul li {
 }
 
 #otherGovernment ul a#legislature span{
-	background: url('../images/executiveAgencyPanel2022.jpg') 0 -247px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') 0 -247px no-repeat;
 	margin: 2px 0 0 0;
 	top: 3px;
 }
 
 #otherGovernment ul a#legislature:hover span{
-	background: url('../images/executiveAgencyPanel2022.jpg') -245px -247px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') -245px -247px no-repeat;
 }
 
 #otherGovernment ul a#courts span{
-	background: url('../images/executiveAgencyPanel2022.jpg') 0 -320px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') 0 -320px no-repeat;
 	margin: 2px 0 0 0;
 	top: 75px;
 }
 
 #otherGovernment ul a#courts:hover span{
-	background: url('../images/executiveAgencyPanel2022.jpg') -245px -320px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') -245px -320px no-repeat;
 }
 
 #otherGovernment ul a#congress span{
-	background: url('../images/executiveAgencyPanel2022.jpg') 0 -393px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') 0 -393px no-repeat;
 	margin: 2px 0 2px 0;
 	top: 148px;
 }
 
 #otherGovernment ul a#congress:hover span{
-	background: url('../images/executiveAgencyPanel2022.jpg') -245px -393px no-repeat;
+	background: url('https://alaska.gov/images/executiveAgencyPanel2022.jpg') -245px -393px no-repeat;
 }
 /* HIGHLIGHTS */
 /*Box to hold the links of highlights*/
@@ -1086,7 +1086,7 @@ a#more_notices{
 	text-align: right;
 	display: block;
 	font-size: .9em;
-	background: url('../images/blueBTN.png') no-repeat top right;
+	background: url('https://alaska.gov/images/blueBTN.png') no-repeat top right;
 }
 
 a#more_notices:hover, a#more_notices:focus{
@@ -1135,7 +1135,7 @@ a#more_notices:hover, a#more_notices:focus{
 	top: 0;
 	left: 6px;
 	z-index: 1;
-	background: url('../images/kidscornerBG.jpg') no-repeat;
+	background: url('https://alaska.gov/images/kidscornerBG.jpg') no-repeat;
 }
 /* HACKS */
 /* iPhoneHacks carried from previous style sheet. */
