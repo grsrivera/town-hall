@@ -8,8 +8,15 @@ body {
 
 .town-Hall-Section {
     display: flex;
+    padding: 0 5px;
+}
+
+.column {
+    width: 50%;
+    display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .top-button-box {
@@ -65,9 +72,8 @@ body {
 
 .gov-box, .citizens-box {
     width: 100%;
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
-
 
 .gov-box hr, .citizens-box hr {
     margin: 10px;
@@ -76,7 +82,7 @@ body {
 /* Start originator post */
 .thread-container {
     width: 100%;
-    margin-left: 50px;
+    margin-left: 5px;
     padding: 20px 0; 
     display: flex;
     flex-direction: column;
