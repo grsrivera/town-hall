@@ -53,7 +53,7 @@ function populateThread(thread) {
     if (textContent.length < 100 ) {
         postContent.innerHTML = textContent;
     } else {
-        postContent.innerHTML = textContent.slice(0, 100) + "..."  
+        postContent.innerHTML = textContent.slice(0, 129) + "..."  
     }
 
     // Border

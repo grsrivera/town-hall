@@ -8,7 +8,7 @@ body {
 
 .town-Hall-Section {
     display: flex;
-    padding: 0 5px;
+    padding: 0;
 }
 
 .column {
@@ -17,6 +17,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}
+
+.vert-line {
+    border-right: 1px solid lightgray;
+    margin-top: 100px;
+    margin-bottom: 35px;
 }
 
 .top-button-box {
@@ -66,7 +72,8 @@ body {
 
 .table-title {
     margin-top: 40px;
-    font-size: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
     font-style: italic;
 }
 
@@ -76,14 +83,13 @@ body {
 }
 
 .gov-box hr, .citizens-box hr {
-    margin: 10px;
+    margin: 20px;
 }
 
 /* Start originator post */
 .thread-container {
     width: 100%;
-    margin-left: 5px;
-    padding: 20px 0; 
+    /* padding: 20px 0;  */
     display: flex;
     flex-direction: column;
 }
@@ -96,12 +102,6 @@ body {
     font-weight: bold;
 }
 
-.title {
-    font-size: 24px;
-    color: black;
-    text-transform: none;
-}
-
 .originator-block img {
     width: 32px;
     height: 32px;
@@ -109,9 +109,17 @@ body {
     margin: 10px;
 }
 
-.title, .post-content {
+.title {
+    padding-left: 10px;
+    font-size: 20px;
+    color: black;
+    text-transform: none;
+}
+
+.post-content {
     padding-left: 10px;
     color: black;
+    /* height: 42px; */
 }
 
 .time-ago-block {
@@ -127,9 +135,4 @@ body {
 /* Post counts */
 .post-pages-gov, .post-pages-citizens {
     font-size: 10px
-}
-
-hr {
-    margin: 5px 0;
-    padding: 0;
 }
