@@ -190,3 +190,15 @@ blockquote + blockquote {
     font-weight: normal;
     padding-left: 10px;
 }
+
+/* Gov reply box */
+.government {
+    border: 3px solid #194A6B;
+    border-radius: 20px;
+    background: #eff6fb;
+    padding: 5px;
+}
+
+.government button {
+    display: none;
+}

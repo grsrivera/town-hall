@@ -33,6 +33,11 @@ function createReplyBox(reply) {
     let replyBox = document.createElement("div");
     replyBox.classList.add("reply");
 
+    // Allows styling for gov response later
+    if (reply.user_id === 1) {
+        replyBox.classList.add("government");
+    }
+
     let replierInfo = document.createElement("div");
     replierInfo.classList.add("replier-info");
     let replierPic = document.createElement("img");
