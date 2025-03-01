@@ -124,7 +124,7 @@ def get_posts():
         conn = get_db_connection()
 
         comments = conn.execute("""
-            SELECT c.*, u.first_name, u.last_name, u.profile_pic, t.topic
+            SELECT c.*, u.first_name, u.last_name, u.profile_pic, t.topic, t.government
             FROM comments c
             JOIN users u ON c.user_id = u.user_id
             JOIN threads t ON c.thread_id = t.thread_id

@@ -10,8 +10,13 @@ function populateOriginalPost(post) {
     originatorName.innerHTML = `${post.first_name} ${post.last_name}<span class="dot">&nbsp;•&nbsp;</span>`
 
     // Title and content
+    console.log(post)
     let postTitle = document.getElementById("post-title");
-    postTitle.innerHTML = `✅ ${post.topic}`
+    if (post.government === 1) {
+        postTitle.innerHTML = `✅ ${post.topic}`
+    } else {
+        postTitle.innerHTML = `${post.topic}`
+    }
 
     let postContent = document.querySelector(".post-content");
     let tempQuill = new Quill(postContent);
