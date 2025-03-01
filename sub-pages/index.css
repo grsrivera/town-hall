@@ -12,6 +12,17 @@ body {
     padding: 0 10px;
 }
 
+.summary-box h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.subtitle {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
 .column-box {
     display: flex;
 }
@@ -129,7 +140,7 @@ body {
     padding-left: 10px;
     color: black;
     width: 100%;
-    height: 42px;
+    max-height: 42px;
     text-overflow: ellipsis;
     overflow: hidden; 
 }

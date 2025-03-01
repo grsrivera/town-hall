@@ -15,10 +15,10 @@ function populateThread(thread) {
     let govBox = document.querySelector(".gov-box");
     let citizensBox = document.querySelector(".citizens-box");
     if (thread.government === 1) {
-        govBox.appendChild(threadContainer);
+        govBox.prepend(threadContainer);  // Prepend puts pushes older boxes down
         originatorBlock.innerHTML = "✅";
     } else {
-        citizensBox.appendChild(threadContainer);
+        citizensBox.prepend(threadContainer);
     }
     
     threadContainer.appendChild(originatorBlock);

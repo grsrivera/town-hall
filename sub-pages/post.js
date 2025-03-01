@@ -10,7 +10,6 @@ function populateOriginalPost(post) {
     originatorName.innerHTML = `${post.first_name} ${post.last_name}<span class="dot">&nbsp;•&nbsp;</span>`
 
     // Title and content
-    console.log(post)
     let postTitle = document.getElementById("post-title");
     if (post.government === 1) {
         postTitle.innerHTML = `✅ ${post.topic}`
