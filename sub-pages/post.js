@@ -7,11 +7,11 @@ function populateOriginalPost(post) {
 
     // Name
     originatorName = originatorInfo.querySelector(".username").querySelector("a")
-    originatorName.innerHTML = `${post.first_name} ${post.last_name}`
+    originatorName.innerHTML = `${post.first_name} ${post.last_name}<span class="dot">&nbsp;•&nbsp;</span>`
 
     // Title and content
     let postTitle = document.getElementById("post-title");
-    postTitle.innerHTML = `${post.topic}`
+    postTitle.innerHTML = `✅ ${post.topic}`
 
     let postContent = document.querySelector(".post-content");
     let tempQuill = new Quill(postContent);
@@ -46,7 +46,7 @@ function createReplyBox(reply) {
     replierNameBox.classList.add("username");
     let replierNameLink = document.createElement("a");
     replierNameLink.href = "#";
-    replierNameLink.innerHTML= `${reply.first_name} ${reply.last_name}`
+    replierNameLink.innerHTML= `${reply.first_name} ${reply.last_name}<span class="dot">&nbsp;•&nbsp;</span>`
 
     let commentContainer = document.querySelector(".comment-container");
     commentContainer.insertAdjacentElement("beforebegin", replyBox);
@@ -65,6 +65,15 @@ function createReplyBox(reply) {
     tempQuill.setContents(quillContent);
     replierComment.innerHTML = tempQuill.root.innerHTML;
     replyBox.appendChild(replierComment);
+
+    // Time ago
+    let pastDate = `${reply.timestamp}`;
+    const pastMoment = moment(pastDate);
+    let timeAgoText = pastMoment.fromNow();
+    let timeAgoBlock = document.createElement("div");
+    timeAgoBlock.className = "time-ago-block";
+    timeAgoBlock.innerHTML = timeAgoText;
+    replierInfo.appendChild(timeAgoBlock);
 
     // Reply Button
     let replyButton = document.createElement("button");

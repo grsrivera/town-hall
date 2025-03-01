@@ -8,7 +8,12 @@ body {
 
 .town-Hall-Section {
     display: flex;
-    padding: 0;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.column-box {
+    display: flex;
 }
 
 .column {
@@ -77,6 +82,10 @@ body {
     font-style: italic;
 }
 
+.checkmark {
+    font-style: normal;
+}
+
 .gov-box, .citizens-box {
     width: 100%;
     /* padding-left: 30px; */
@@ -119,12 +128,19 @@ body {
 .post-content {
     padding-left: 10px;
     color: black;
-    /* height: 42px; */
+    width: 100%;
+    height: 42px;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+
+.dot {
+    font-style: normal;
+    opacity: .7;
 }
 
 .time-ago-block {
     font-weight: normal;
-    padding-left: 10px;
 }
 
 .post-content p {

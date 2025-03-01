@@ -16,6 +16,7 @@ function populateThread(thread) {
     let citizensBox = document.querySelector(".citizens-box");
     if (thread.government === 1) {
         govBox.appendChild(threadContainer);
+        originatorBlock.innerHTML = "✅";
     } else {
         citizensBox.appendChild(threadContainer);
     }
@@ -28,7 +29,7 @@ function populateThread(thread) {
     let originatorPic = document.createElement("img");
     originatorPic.src = `profile_pics/${thread.profile_pic}`;
     let originatorName = document.createElement("div");
-    originatorName.innerHTML = `${thread.first_name} ${thread.last_name}`;
+    originatorName.innerHTML = `${thread.first_name} ${thread.last_name}<span class="dot">&nbsp;•&nbsp;</span>`;
     originatorBlock.appendChild(originatorPic);
     originatorBlock.appendChild(originatorName);
 
@@ -53,7 +54,7 @@ function populateThread(thread) {
     if (textContent.length < 100 ) {
         postContent.innerHTML = textContent;
     } else {
-        postContent.innerHTML = textContent.slice(0, 129) + "..."  
+        postContent.innerHTML = textContent.slice(0, 150) + "..."  
     }
 
     // Border
