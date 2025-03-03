@@ -269,7 +269,7 @@ def summarize():
         citizen_posts = [dict(thread) for thread in threads if not thread["government"]]
 
         genai.configure(api_key=gemini_key)
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-2.0-flash-lite")
 
         response = model.generate_content(
             f"These are messages from my constituents. Can you summarize what their posts are about in a few sentences? "
@@ -283,6 +283,9 @@ def summarize():
         return jsonify({"summary": response.text})
 
     except Exception as e:
+        # import traceback
+        # print("Gemini API Error:", str(e))
+        # traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 
