@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     total_count = data.total_count;
 
     let tableTitle = document.querySelector(".table-title");
-    if (govResponse === true) {
+    if (govResponse == true) {
         tableTitle.innerHTML = "Government Responses";
     } else {
         tableTitle.innerHTML = "From Alaskans";

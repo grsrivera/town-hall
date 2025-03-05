@@ -173,8 +173,8 @@ def post_reply():
             VALUES (?, ?, ?, ?)
         """, (thread_id, data["user_id"], data["content"], data["timestamp"]))
         
-        # Update last activity for the thread
-        cursor.execute("UPDATE threads SET last_activity = ? WHERE thread_id = ?", (data["timestamp"], thread_id))
+        # Update last activity and message count for the thread
+        cursor.execute("UPDATE threads SET last_activity = ?, message_count = message_count + 1 WHERE thread_id = ?", (data["timestamp"], thread_id))
 
         conn.commit()
         conn.close()
@@ -196,8 +196,8 @@ def create_thread():
 
         # Insert new thread
         cursor.execute("""
-            INSERT INTO threads (topic, government, last_activity) 
-            VALUES (?, ?, ?)
+            INSERT INTO threads (topic, government, last_activity, message_count) 
+            VALUES (?, ?, ?, ?)
         """, (data["topic"], False, data["timestamp"]))
         
         thread_id = cursor.lastrowid  # Get the ID of the new thread
