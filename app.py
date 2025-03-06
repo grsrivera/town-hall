@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import sqlite3
-import google.generativeai as genai
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
@@ -254,8 +256,9 @@ def get_search():
     
     return jsonify({"threads": threads, "total_count": total_count})
 
-# API to get a summary of citizen posts (Using Gemini AI)
-gemini_key = "AIzaSyCMvxatW8f8Ij7HGAeKdYaDXkqnk8Y8YiU"
+# API to get a summary of citizen posts using Llama
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 
 @app.route("/get-summary", methods=["GET"])
 def summarize():
@@ -265,27 +268,42 @@ def summarize():
         conn.close()
 
         # Separate threads with and without government replies
-        # gov_reply = [dict(thread) for thread in threads if thread["government"]]
-        citizen_posts = [dict(thread) for thread in threads if not thread["government"]]
+        # gov_reply = [dict(thread) for thread in threads if thread["government"] == 1]
+        citizen_posts = [dict(thread) for thread in threads if thread["government"] == 0]
 
-        genai.configure(api_key=gemini_key)
-        model = genai.GenerativeModel("gemini-2.0-flash-lite")
-
-        response = model.generate_content(
-            f"These are messages from my constituents. Can you summarize what their posts are about in a few sentences? "
-            f"Then can you give me a list of the top 5 most pressing concerns to them?\n"
-            f"In the list, please include hyperlinks when you mention a topic, like hyperlink one to a few words. "
-            f"When mentioning topics, format them as hyperlinks using this format: "
-            f"\"<a href=\"post.html?thread_id=THREAD_ID\" target=\"_blank\" rel=\"noopener noreferrer\">TOPIC_NAME</a>. "
-            f"That helps me post them in html easier.\n{citizen_posts}"
+        client = OpenAI(
+            # This is the default and can be omitted
+            api_key=API_KEY,
+            base_url="https://api.llama-api.com/"
         )
 
-        return jsonify({"summary": response.text})
+        response = client.chat.completions.create(
+            messages=[
+                        {
+                            "role": "system",
+                            "content": "You are the AI for the State of Alaska's official online message board. The user is the governor. His constituents reach out to him on the message board and expect responses or government action. You will be summarizing citizen posts for the governor so he knows the most pressing topics for citizens."
+                        },
+                        {
+                            "role": "user",
+                            "content": f"These are messages from my constituents. Can you summarize what their posts are about in a few sentences? "
+                                        f"Then can you give me a list of the top 5 most pressing concerns to them?\n"
+                                        f"In the list, please include hyperlinks when you mention a topic, like hyperlink one to a few words. "
+                                        f"When mentioning topics, format them as hyperlinks using this format: "
+                                        f"\"<a href=\"post.html?thread_id=THREAD_ID\" target=\"_blank\" rel=\"noopener noreferrer\">TOPIC_NAME</a>. "
+                                        f"That helps me post them in html easier.\n"
+                                        f"Here are the citizen posts: {citizen_posts}\n"
+                        }
+                    ],
+            model="llama3.2-3b",
+            stream=False
+        )
+
+        return jsonify({"summary": response.choices[0].message.content})
 
     except Exception as e:
-        # import traceback
-        # print("Gemini API Error:", str(e))
-        # traceback.print_exc()
+        import traceback
+        print("Llama Error:", str(e))
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 
