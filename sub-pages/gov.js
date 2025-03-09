@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let response = await fetch(`${BASE_URL}/get-summary`)
         let data = await response.json()
-        console.log(data)
+  
         let summBox = document.querySelector(".summ");
         
         let formattedSummary = data.summary
