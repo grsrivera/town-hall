@@ -30,5 +30,20 @@ body {
 
 .summ {
     margin-top: 30px;
+    width: 100%;
 }
 
+.view-button {
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.view-button:hover {
+    background: #DBE4E9;
+}
